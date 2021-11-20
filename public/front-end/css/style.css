@@ -1,0 +1,15 @@
+/*--
+	Theme Name: Versity Project
+	Theme URI: https://github.com/moonkabir/versity-project
+	Author: Moon Kabir
+	Author URI: https://github.com/moonkabir/
+	Description: College Education Responsive Template
+	Version: 1.0
+	License URI: MIT
+	Tags:
+--*/
+
+@import "misc.css";
+@import "main.css";
+@import "color-scheme.css";
+@import "responsive.css";
