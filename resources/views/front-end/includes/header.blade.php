@@ -8,7 +8,8 @@
             <li class="@yield('about_menu_active')"><a href="/about">About</a></li>
             <li class="@yield('administration_menu_active')"><a href="/administration">Administration</a></li>
             <li class="@yield('academic_menu_active')"><a href="/academic">Academic</a></li>
-            <li class="@yield('admission_menu_active')"><a href="/admission">Addmission</a></li>
+            <li class="@yield('admission_menu_active')"><a href="/admission">Admission</a></li>
+            <li class="@yield('faculty_menu_active')"><a href="/faculty">Faculty</a></li>
             <li class="@yield('result_menu_active')"><a href="/result">Results</a></li>
             <li class="@yield('activities_menu_active')"><a href="/activities">Activities</a></li>
             <li class="@yield('gallery_menu_active')"><a>Gallery</a>
@@ -55,20 +56,21 @@
                     <li class="@yield('about_menu_active')"><a href="/about">About</a></li>
                     <li class="@yield('administration_menu_active')"><a href="/administration">Administration</a></li>
                     <li class="@yield('academic_menu_active')"><a href="/academic">Academic</a></li>
-                    <li class="@yield('admission_menu_active')"><a href="/admission">Addmission</a></li>
-                    <li class="@yield('result_menu_active')"><a href="/result">Results</a></li>
-                    <li class="@yield('activities_menu_active')"><a href="/activities">Activities</a></li>
+                    <li class="@yield('admission_menu_active')"><a href="/admission">Admission</a></li>
+                    <li class="@yield('faculty_menu_active')"><a href="/faculty">Faculty</a></li>
+                    {{-- <li class="@yield('result_menu_active')"><a href="/result">Results</a></li> --}}
+                    {{-- <li class="@yield('activities_menu_active')"><a href="/activities">Activities</a></li> --}}
                     <li class="@yield('gallery_menu_active')"><a>Gallery</a>
                         <ul class="sub-menu">
                             <li class="@yield('video_gallery_menu_active')"><a href="/video-gallery">Video Gallery</a></li>
                             <li class="@yield('image_gallery_menu_active')"><a href="/image-gallery">Image Gallery</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Pages</a>
+                    {{-- <li><a href="#">Pages</a>
                         <ul class="sub-menu">
                             <li><a href="archives.html">Archives</a></li>
                         </ul>
-                    </li>
+                    </li> --}}
                     <li class="@yield('contact_menu_active')"><a href="/contact">Contact</a></li>
                 </ul> <!-- /.main-menu -->
             </nav> <!-- /.main-navigation -->

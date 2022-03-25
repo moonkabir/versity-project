@@ -20,6 +20,8 @@ Route::get('/', [FrontController::class, 'home_view']);
 Route::get('/about', [FrontController::class, 'about']);
 Route::get('/administration', [FrontController::class, 'administration']);
 Route::get('/academic', [FrontController::class, 'academic']);
+Route::get('/admission', [FrontController::class, 'admission']);
+Route::get('/faculty', [FrontController::class, 'faculty']);
 Route::get('/video-gallery', [FrontController::class, 'video_gallery']);
 Route::get('/image-gallery', [FrontController::class, 'image_gallery']);
 Route::get('/contact', [FrontController::class, 'contact']);

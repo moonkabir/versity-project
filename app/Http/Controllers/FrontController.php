@@ -22,6 +22,14 @@ class FrontController extends Controller
     public function academic(){
         return view('front-end.academic.academic');
     }
+    //------addmission view----------
+    public function admission(){
+        return view('front-end.admission.admission');
+    }
+    //------faculty view----------
+    public function faculty(){
+        return view('front-end.faculty.faculty');
+    }
     //------image gallery view----------
     public function image_gallery(){
         return view('front-end.gallery.image-gallery.image-gallery');

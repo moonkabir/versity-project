@@ -153,5 +153,4 @@ jQuery(document).ready(function($){
 		],
     });
 
-
 });
