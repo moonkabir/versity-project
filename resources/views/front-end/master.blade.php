@@ -11,7 +11,8 @@
     <link href="{{asset('front-end/css/font-awesome.min.css') }}" rel="stylesheet" media="screen">
     <link href="{{asset('front-end/css/animate.css') }}" rel="stylesheet" media="screen">
     <link href="{{asset('front-end/css/tiny-slider.css') }}" rel="stylesheet" media="screen">
-    <link href="{{asset('front-end/css/style.css') }}" rel="stylesheet" media="screen">
+    <link href="{{asset('front-end/css/style.css') }}?v={{ time() }}" rel="stylesheet" media="screen">
+    <link href="{{asset('front-end/css/responsive.css') }}?v={{ time() }}" rel="stylesheet" media="screen">
     <!-- Favicons -->
     <link href="{{asset('front-end/images/favicon.ico') }}" rel="shortcut icon" type="image/x-icon" />
     <!-- JavaScripts -->
@@ -29,6 +30,6 @@
     <script src="{{asset('front-end/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{asset('front-end/js/plugins.js') }}"></script>
     <script src="{{asset('front-end/js/tiny-slider.js') }}"></script>
-    <script src="{{asset('front-end/js/custom.js') }}"></script>
+    <script src="{{asset('front-end/js/custom.js') }}?v={{ time() }}"></script>
 </body>
 </html>

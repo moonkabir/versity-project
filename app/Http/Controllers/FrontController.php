@@ -18,8 +18,20 @@ class FrontController extends Controller
     public function administration(){
         return view('front-end.administration.administration');
     }
-    //------about view----------
+    //------academic view----------
     public function academic(){
         return view('front-end.academic.academic');
+    }
+    //------image gallery view----------
+    public function image_gallery(){
+        return view('front-end.gallery.image-gallery.image-gallery');
+    }
+    //------video gallery view----------
+    public function video_gallery(){
+        return view('front-end.gallery.video-gallery.video-gallery');
+    }
+    //------contact view----------
+    public function contact(){
+        return view('front-end.contact.contact');
     }
 }

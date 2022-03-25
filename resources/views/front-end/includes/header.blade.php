@@ -4,17 +4,17 @@
     </a>
     <div class="responsive_menu">
         <ul class="main_menu">
-            <li class="@yield('index_menu_active')"><a href="index.html">Home</a></li>
-            <li><a href="contact.html">About us</a></li>
-            <li><a href="contact.html">Administration</a></li>
-            <li><a href="contact.html">Academic</a></li>
-            <li><a href="contact.html">Addmission</a></li>
-            <li><a href="contact.html">Results</a></li>
-            <li><a href="contact.html">Activities</a></li>
-            <li><a href="contact.html">Gallery</a>
-            <ul class="sub-menu">
-                    <li><a href="#">Video Gallery</a></li>
-                    <li><a href="gallery.html">Image Gallery</a></li>
+            <li class="@yield('index_menu_active')"><a href="/">Home</a></li>
+            <li class="@yield('about_menu_active')"><a href="/about">About</a></li>
+            <li class="@yield('administration_menu_active')"><a href="/administration">Administration</a></li>
+            <li class="@yield('academic_menu_active')"><a href="/academic">Academic</a></li>
+            <li class="@yield('admission_menu_active')"><a href="/admission">Addmission</a></li>
+            <li class="@yield('result_menu_active')"><a href="/result">Results</a></li>
+            <li class="@yield('activities_menu_active')"><a href="/activities">Activities</a></li>
+            <li class="@yield('gallery_menu_active')"><a>Gallery</a>
+                <ul class="sub-menu">
+                    <li class="@yield('video_gallery_menu_active')"><a href="/video-gallery">Video Gallery</a></li>
+                    <li class="@yield('image_gallery_menu_active')"><a href="/image-gallery">Image Gallery</a></li>
                 </ul>
             </li>
             <li><a href="#">Pages</a>
@@ -22,7 +22,7 @@
                     <li><a href="archives.html">Archives</a></li>
                 </ul>
             </li>
-            <li><a href="contact.html">Contact</a></li>
+            <li class="@yield('contact_menu_active')"><a href="/contact">Contact</a></li>
         </ul> <!-- /.main_menu -->
     </div> <!-- /.responsive_menu -->
 </div> <!-- /responsive_navigation -->
@@ -30,7 +30,7 @@
     <div class="container top-bar">
         <div class="row">
             <div class="col-md-6">
-                <img src="{{asset('front-end/images/University_logo.png') }}" alt="University_logo">
+                <img src="{{asset('front-end/images/University_logo.png') }}" alt="University_logo" class="w-100">
             </div> <!-- /.header-left -->
             <div class="col-md-6 top-bar-right">
                 <ul class="small-links">
@@ -58,10 +58,10 @@
                     <li class="@yield('admission_menu_active')"><a href="/admission">Addmission</a></li>
                     <li class="@yield('result_menu_active')"><a href="/result">Results</a></li>
                     <li class="@yield('activities_menu_active')"><a href="/activities">Activities</a></li>
-                    <li class="@yield('gallery_menu_active')"><a href="contact.html">Gallery</a>
-                    <ul class="sub-menu">
-                            <li><a href="#">Video Gallery</a></li>
-                            <li><a href="gallery.html">Image Gallery</a></li>
+                    <li class="@yield('gallery_menu_active')"><a>Gallery</a>
+                        <ul class="sub-menu">
+                            <li class="@yield('video_gallery_menu_active')"><a href="/video-gallery">Video Gallery</a></li>
+                            <li class="@yield('image_gallery_menu_active')"><a href="/image-gallery">Image Gallery</a></li>
                         </ul>
                     </li>
                     <li><a href="#">Pages</a>
