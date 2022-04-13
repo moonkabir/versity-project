@@ -31,21 +31,21 @@
                     <div class="flexslider">
                         <ul class="slides">
                             <li>
-                                <img src="{{asset('front-end/images/slide1.jpg') }}" />
+                                <img src="{{asset('front-end/images/slide1.jpg') }}" class="slider-img"/>
                                 <div class="slider-caption">
                                     <h2><a href="blog-single.html">When a Doctor’s Visit Is a Guilt Trip</a></h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="{{asset('front-end/images/slide2.jpg') }}" />
+                                <img src="{{asset('front-end/images/slide2.jpg') }}"  class="slider-img"/>
                                 <div class="slider-caption">
                                     <h2><a href="blog-single.html">Unlocking the scrolls of Herculaneum</a></h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
                                 </div>
                             </li>
                             <li>
-                                <img src="{{asset('front-end/images/slide3.jpg') }}" />
+                                <img src="{{asset('front-end/images/slide3.jpg') }}"  class="slider-img"/>
                                 <div class="slider-caption">
                                     <h2><a href="blog-single.html">Corin Sworn wins Max Mara Art Prize</a></h2>
                                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
