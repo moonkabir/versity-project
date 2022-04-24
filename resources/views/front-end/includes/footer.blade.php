@@ -33,7 +33,7 @@
                         <li><a href="#">Faculty/Staff</a></li>
                         <li><a href="#">International</a></li>
                         <li><a href="#">Postdocs</a></li>
-                        <li><a href="#">Alumni</a></li>
+                        <li><a href="/allumni">Alumni</a></li>
                     </ul>
                 </div>
             </div>

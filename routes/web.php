@@ -22,9 +22,12 @@ Route::get('/administration', [FrontController::class, 'administration']);
 Route::get('/academic', [FrontController::class, 'academic']);
 Route::get('/admission', [FrontController::class, 'admission']);
 Route::get('/faculty', [FrontController::class, 'faculty']);
+Route::get('/faculty_member_details', [FrontController::class, 'faculty_member_details']);
 Route::get('/video-gallery', [FrontController::class, 'video_gallery']);
 Route::get('/image-gallery', [FrontController::class, 'image_gallery']);
+Route::get('/result', [FrontController::class, 'result']);
 Route::get('/contact', [FrontController::class, 'contact']);
+Route::get('/allumni', [FrontController::class, 'allumni']);
 
 //----------------- admin panel route-----------------
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth'])->name('admin.dashboard');
@@ -40,7 +43,6 @@ require __DIR__.'/auth.php';
 
 
 //------------- cache clear---------------------
-
 Route::get('/clear', function () {
     $output = new \Symfony\Component\Console\Output\BufferedOutput();
     Artisan::call('optimize:clear', array(), $output);

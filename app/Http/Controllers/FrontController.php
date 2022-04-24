@@ -38,8 +38,20 @@ class FrontController extends Controller
     public function video_gallery(){
         return view('front-end.gallery.video-gallery.video-gallery');
     }
+    //------result view----------
+    public function result(){
+        return view('front-end.result.result');
+    }
     //------contact view----------
     public function contact(){
         return view('front-end.contact.contact');
+    }
+    //------allumni view----------
+    public function allumni(){
+        return view('front-end.allumni.allumni');
+    }
+    //------faculty_member_details view----------
+    public function faculty_member_details(){
+        return view('front-end.faculty.profile');
     }
 }

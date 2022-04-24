@@ -10,7 +10,7 @@
             <li class="@yield('academic_menu_active')"><a href="/academic">Academic</a></li>
             <li class="@yield('admission_menu_active')"><a href="/admission">Admission</a></li>
             <li class="@yield('faculty_menu_active')"><a href="/faculty">Faculty</a></li>
-            <li class="@yield('result_menu_active')"><a href="/result">Results</a></li>
+            <li class="@yield('result_menu_active')"><a href="/result">Result</a></li>
             <li class="@yield('activities_menu_active')"><a href="/activities">Activities</a></li>
             <li class="@yield('gallery_menu_active')"><a>Gallery</a>
                 <ul class="sub-menu">
@@ -58,7 +58,7 @@
                     <li class="@yield('academic_menu_active')"><a href="/academic">Academic</a></li>
                     <li class="@yield('admission_menu_active')"><a href="/admission">Admission</a></li>
                     <li class="@yield('faculty_menu_active')"><a href="/faculty">Faculty</a></li>
-                    {{-- <li class="@yield('result_menu_active')"><a href="/result">Results</a></li> --}}
+                    <li class="@yield('result_menu_active')"><a href="/result">Result</a></li>
                     {{-- <li class="@yield('activities_menu_active')"><a href="/activities">Activities</a></li> --}}
                     <li class="@yield('gallery_menu_active')"><a>Gallery</a>
                         <ul class="sub-menu">
