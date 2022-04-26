@@ -1,10 +1,11 @@
 <?php
-
+require __DIR__ . '/auth.php';
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\AcademicController;
+use App\Http\Controllers\admin\FacultyController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,14 +32,22 @@ Route::get('/allumni', [FrontController::class, 'allumni']);
 
 //----------------- admin panel route-----------------
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->middleware(['auth'])->name('admin.dashboard');
+//----------------- admin panel syllabus route -----------------
 Route::get('/add_syllabus', [AcademicController::class, 'add_syllabus'])->middleware(['auth'])->name('add_syllabus');
 Route::post('/add_syllabus_post', [AcademicController::class, 'add_syllabus_post'])->middleware(['auth'])->name('add_syllabus_post');
 Route::get('/manage_syllabus', [AcademicController::class, 'manage_syllabus'])->middleware(['auth'])->name('manage_syllabus');
 Route::get('/edit_syllabus/{id}', [AcademicController::class, 'edit_syllabus'])->middleware(['auth'])->name('edit_syllabus');
 Route::post('/edit_syllabus_post', [AcademicController::class, 'edit_syllabus_post'])->middleware(['auth'])->name('edit_syllabus_post');
 Route::get('/syllabus_delete/{id}', [AcademicController::class, 'syllabus_delete'])->middleware(['auth'])->name('syllabus_delete');
+//----------------- admin panel faculty route -----------------
+Route::get('/add_faculty_member', [FacultyController::class, 'add_faculty_member'])->middleware(['auth'])->name('add_faculty_member');
+Route::post('/add_faculty_member_post', [FacultyController::class, 'add_faculty_member_post'])->middleware(['auth'])->name('add_faculty_member_post');
+Route::get('/manage_faculty_member', [FacultyController::class, 'manage_faculty_member'])->middleware(['auth'])->name('manage_faculty_member');
+Route::get('/edit_faculty_member/{id}', [FacultyController::class, 'edit_faculty_member'])->middleware(['auth'])->name('edit_faculty_member');
+Route::post('/edit_faculty_member_post', [FacultyController::class, 'edit_faculty_member_post'])->middleware(['auth'])->name('edit_faculty_member_post');
+Route::get('/delete_faculty_member/{id}', [FacultyController::class, 'delete_faculty_member'])->middleware(['auth'])->name('delete_faculty_member');
 
-require __DIR__.'/auth.php';
+
 
 
 

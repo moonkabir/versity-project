@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="{{asset('admin/assets/plugins/jqvmap/jqvmap.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('admin/assets/dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{asset('admin/assets/dist/css/custom.css')}}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{{asset('admin/assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Daterange picker -->
@@ -226,9 +227,10 @@
               <p>Dashboard</p>
             </a>
           </li>
+          {{-- Academic section start --}}
           <li class="nav-item @yield('academic_menu_open')">
             <a href="#" class="nav-link  @yield('academic_menu_active')">
-              <i class="nav-icon fas fa-edit"></i>
+              <i class="fas fa-book-open"></i>
               <p>Academic<i class="fas fa-angle-left right"></i></p>
             </a>
             <ul class="nav nav-treeview">
@@ -246,6 +248,29 @@
               </li>
             </ul>
           </li>
+          {{-- Academic section End --}}
+          {{-- faculty section start --}}
+          <li class="nav-item @yield('faculty_menu_open')">
+            <a href="#" class="nav-link  @yield('faculty_menu_active')">
+              <i class="fas fa-building"></i>
+              <p>Faculty<i class="fas fa-angle-left right"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('add_faculty_member')}}" class="nav-link @yield('add_faculty_member_menu_active')">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Add Faculty Member</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('manage_faculty_member')}}" class="nav-link @yield('manage_faculty_member_menu_active')">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Manage Faculty Member</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          {{-- faculty section End --}}
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
