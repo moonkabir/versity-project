@@ -52,39 +52,51 @@ SBPGC CSE DEPT. Admin Panel Academic syllabus
                 <table id="example1" class="table table-bordered table-hover">
                   <thead>
                   <tr>
-                    <th>Course Code</th>
-                    <th>Course Title</th>
-                    <th>Course Credit</th>
-                    <th>Semester</th>
-                    <th>Degree</th>
-                    <th>Status</th>
+                    <th>ID</th>
+                    <th>Member Image</th>
+                    <th>Member Name</th>
+                    <th>Member Number</th>
+                    <th>Member Email</th>
+                    <th>Member Designation</th>
+                    <th>Member Status</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach($check_datas as $check_data)
+                    <?php
+                    $i = 1;
+                    // dd($faculty_members);
+                    ?>
+                    @foreach($faculty_members as $faculty_member)
                     <tr>
-                      <td>{{$check_data->course_code}}</td>
-                      <td>{{$check_data->course_title}}</td>
-                      <td>{{$check_data->course_credit}}</td>
-                      <td>{{$check_data->semester}} Semester</td>
-                      <td>{{$check_data->degree}}</td>
-                      <td>{{$check_data->status}} Syllabus</td>
+                      <td>{{$i}}</td>
                       <td>
-                        <a href="{{ route('edit_syllabus', [ 'id'=> $check_data->id ]) }}"><i class="fas fa-edit"></i></a>  | 
-                        <a href="{{ route('syllabus_delete', [ 'id'=> $check_data->id ]) }}"><i class="fas fa-trash"></i></a>
+                        <img src="{{$faculty_member->image}}" width="80">                        
+                      </td>
+                      <td>{{$faculty_member->name}}</td>
+                      <td>{{$faculty_member->contact_number}}</td>
+                      <td>{{$faculty_member->email}}</td>
+                      <td>{{$faculty_member->designation}}</td>
+                      <td>{{$faculty_member->permanent_status}}</td>
+                      <td>
+                        <a href="{{ route('edit_faculty_member', [ 'id'=> $faculty_member->id ]) }}"><i class="fas fa-edit"></i></a>  | 
+                        <a href="{{ route('delete_faculty_member', [ 'id'=> $faculty_member->id ]) }}"><i class="fas fa-trash"></i></a>
                       </td>
                     </tr>
+                    <?php
+                    $i += 1;
+                    ?>
                     @endforeach                  
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>Course Code</th>
-                    <th>Course Title</th>
-                    <th>Course Credit</th>
-                    <th>Semester</th>
-                    <th>Degree</th>
-                    <th>Status</th>
+                    <th>ID</th>
+                    <th>Member Image</th>
+                    <th>Member Name</th>
+                    <th>Member Number</th>
+                    <th>Member Email</th>
+                    <th>Member Designation</th>
+                    <th>Member Status</th>
                     <th>Action</th>
                   </tr>
                   </tfoot>

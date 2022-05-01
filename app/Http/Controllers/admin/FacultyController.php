@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DB;
 use Validator;
+use Illuminate\Support\Facades\Hash;
 
 class FacultyController extends Controller{
     //------add_faculty_member view----------
@@ -37,7 +38,7 @@ class FacultyController extends Controller{
             if ($request->hasFile('image')) {
                 $studentImage = $request->file('image');
                 $imageName = uniqid() . '-' . date('Y-M-D-H-i-s') . '.' . $studentImage->getClientOriginalExtension();
-                $directory = 'assets/img/student-images/';
+                $directory = 'assets/img/faculty-images/';
                 $imageUrl = $directory . $imageName;
                 $studentImage->move($directory, $imageName);
             }
@@ -50,23 +51,30 @@ class FacultyController extends Controller{
                 'designation' => $request->designation,
                 'permanent_status' => $request->permanent_status,
             ]);
-            return view('admin.faculty.manage_faculty_member');
+            DB::table('users')->insert([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make("Secret"),
+            ]);
+
+            return redirect('/manage_faculty_member')->with('Smessage', 'Faculty Member add Succefully');
         } catch (\Exception $e) {
-            return response()->json(['status' => false, 'message' => $e->getMessage()]);
+            // return response()->json(['status' => false, 'message' => $e->getMessage()]);
+            return redirect()->back()->with('Emessage', $e->getMessage());
         }
     }
     //------manage_faculty_member view----------
     public function manage_faculty_member(){
-        $check_datas = DB::table('faculty_member')->get();
-        // dd($check_data);
-        return view('admin.faculty.manage_faculty_member')->with('check_datas', $check_datas);
+        $faculty_members = DB::table('faculty_member')->get();
+        // dd($faculty_member);
+        return view('admin.faculty.manage_faculty_member')->with('faculty_members', $faculty_members);
     } 
-    //------faculty_member_delete view----------
-    public function faculty_member_delete($id){
-        $check_datas = DB::table('faculty_member')
-                            ->where('id',$id)
-                            ->delete();
-        return redirect()->back()->with('Emessage', 'Data Delete Succefully');
+    //------delete_faculty_member view----------
+    public function delete_faculty_member($id){
+        $member_email = DB::table('faculty_member')->where('id',$id)->value("email");
+        DB::table('faculty_member')->where('id',$member_email)->delete();
+        DB::table('users')->where('id',$member_email)->delete();
+        return redirect()->back()->with('Emessage', 'Faculty Member Delete Succefully');
     }
     //------edit_faculty_member view----------
     public function edit_faculty_member($id){
@@ -75,16 +83,37 @@ class FacultyController extends Controller{
     }
     //------edit_faculty_member_post view----------
     public function edit_faculty_member_post(Request $request){
+        // dd($request);
+        if ($request->hasFile('image')) {
+            $studentImage = $request->file('image');
+            $imageName = uniqid() . '-' . date('Y-M-D-H-i-s') . '.' . $studentImage->getClientOriginalExtension();
+            $directory = 'assets/img/faculty-images/';
+            $imageUrl = $directory . $imageName;
+            $studentImage->move($directory, $imageName);
+        }else{
+            $imageUrl = DB::table('faculty_member')->where('id', $request->id)->value('image');
+            // dd($imageUrl);
+        }
+        // dd($imageUrl);
+
+        $member_email = DB::table('faculty_member')->where('id',$request->id)->value("email");
         DB::table('faculty_member')
             ->where('id', $request->id)
             ->update([
-                'course_code' => $request->course_code,
-                'course_title' => $request->course_title,
-                'course_credit' => $request->course_credit,
-                'semester' => $request->semester,
-                'degree' => $request->degree,
-                'status' => $request->status,
+                'name' => $request->name,
+                'contact_number' => $request->contact_number,
+                'email' => $request->email,
+                'description' => $request->description,
+                'image' => $imageUrl,
+                'designation' => $request->designation,
+                'permanent_status' => $request->permanent_status,
             ]);
-        return redirect('/manage_faculty_member')->with('Smessage', 'Succefully faculty_member edited');
+        DB::table('faculty_member')
+            ->where('email', $member_email)
+            ->update([
+                'name' => $request->name,
+                'email' => $request->email
+            ]);
+        return redirect('/manage_faculty_member')->with('Smessage', 'Faculty Member Update Succefully');
     }
 }

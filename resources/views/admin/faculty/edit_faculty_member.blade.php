@@ -4,7 +4,7 @@ SBPGC CSE DEPT. Admin Panel Academic syllabus
 @endsection
 @section('faculty_menu_open')menu-is-opening menu-open @endsection
 @section('faculty_menu_active')active @endsection
-@section('add_faculty_member_menu_active')active @endsection
+@section('manage_faculty_member_menu_active')active @endsection
 @section('admin_panel_section')
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -43,52 +43,48 @@ SBPGC CSE DEPT. Admin Panel Academic syllabus
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form id="add_syllabus_form" method="post" action="{{route('edit_syllabus_post')}}">
+              <form id="edit_faculty_member_form" method="post" action="{{route('edit_faculty_member_post')}}"  enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="course_code">Course Code</label>
-                    <input type="text" class="form-control" id="course_code" name="course_code" placeholder="Course code" required value="{{$edit_data[0]->course_code}}">
+                    <label for="course_code">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" required value="{{$edit_data[0]->name}}">
                     <input type="hidden" id="id" name="id" value="{{$edit_data[0]->id}}">
+                  </div>                 
+                  <div class="form-group">
+                      <label for="contact_number">Phone Number</label>
+                      <input type="text" class="form-control" id="contact_number" name="contact_number" placeholder="Phone Number" required value="{{$edit_data[0]->contact_number}}">
+                  </div>                  
+                  <div class="form-group">
+                      <label for="designation">Designation</label>
+                      <input type="text" class="form-control" id="designation" name="designation" placeholder="Member Designation" required value="{{$edit_data[0]->designation}}">
+                  </div>                  
+                  <div class="form-group">
+                      <label for="email">Email</label>
+                      <input type="text" class="form-control" id="email" name="email" placeholder="Member Email" required value="{{$edit_data[0]->email}}">
+                  </div>                  
+                  <div class="form-group">
+                      <label for="permanent_status">Permanent Status</label>                    
+                      <select name="permanent_status" id="status" class="form-control" required>
+                          <option>Select Status</option>
+                          <option value="Chairman" <?php if($edit_data[0]->permanent_status == "Chairman")echo "selected"; ?> >Chairman</option>
+                          <option value="Member" <?php if($edit_data[0]->permanent_status == "Member")echo "selected"; ?> >Member</option>
+                          <option value="Guest" <?php if($edit_data[0]->permanent_status == "Guest")echo "selected"; ?> >Guest</option>
+                          <option value="Staff" <?php if($edit_data[0]->permanent_status == "Staff")echo "selected"; ?> >Staff</option>
+                      </select>
                   </div>
                   <div class="form-group">
-                    <label for="course_title">Course Title</label>
-                    <input type="text" class="form-control" id="course_title" name="course_title" placeholder="Course title" required value="{{$edit_data[0]->course_title}}">
-                  </div>
+                      <label for="description">Description</label>
+                      <textarea class="form-control ckeditor" name="description" id="description" cols="30" rows="10" value="{{$edit_data[0]->description}}">{{$edit_data[0]->description}}</textarea>
+                  </div> 
                   <div class="form-group">
-                    <label for="course_credit">Course Credit</label>
-                    <input type="text" class="form-control" id="course_credit" name="course_credit" placeholder="Course credit" required onkeypress="return validateNumber(event)" value="{{$edit_data[0]->course_credit}}">
-                  </div>
-                  <div class="form-group">
-                    <label for="semester">Course Semester</label>                    
-                    <select name="semester" id="semester" class="form-control" required>
-                      <option>Select Course Semester</option>
-                      <option value="1st" <?php if($edit_data[0]->semester == '1st') echo 'selected'; ?> >1st Semester</option>
-                      <option value="2nd" <?php if($edit_data[0]->semester == '2nd') echo 'selected'; ?> >2nd Semester</option>
-                      <option value="3rd" <?php if($edit_data[0]->semester == '3rd') echo 'selected'; ?> >3rd Semester</option>
-                      <option value="4th" <?php if($edit_data[0]->semester == '4th') echo 'selected'; ?> >4th Semester</option>
-                      <option value="5th" <?php if($edit_data[0]->semester == '5th') echo 'selected'; ?> >5th Semester</option>
-                      <option value="6th" <?php if($edit_data[0]->semester == '6th') echo 'selected'; ?> >6th Semester</option>
-                      <option value="7th" <?php if($edit_data[0]->semester == '7th') echo 'selected'; ?> >7th Semester</option>
-                      <option value="8th" <?php if($edit_data[0]->semester == '8th') echo 'selected'; ?> >8th Semester</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="degree">Course Degree</label>                    
-                    <select name="degree" id="degree" class="form-control" required>
-                      <option>Select Course Degree</option>
-                      <option value="Hon's" <?php if($edit_data[0]->degree == "Hon's") echo 'selected'; ?> >Hon's</option>
-                      <option value="Masters" <?php if($edit_data[0]->degree == 'Masters') echo 'selected'; ?> >Masters</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="status">Course Status</label>                    
-                    <select name="status" id="status" class="form-control" required>
-                      <option>Select Course Status</option>
-                      <option value="old" <?php if($edit_data[0]->status == 'old') echo 'selected'; ?> >Old</option>
-                      <option value="new" <?php if($edit_data[0]->status == 'new') echo 'selected'; ?> >New</option>
-                    </select>
-                  </div>
+                      <input type="file" name="image" id="fileupload" onchange="getFiles(event)" style="display: none;">
+                      <div class="d-flex" style="border: 1px solid;">
+                        <button class="addfiles form-control" style="border: 0; width: 10%">Choose File:</button>
+                        <input type="text" value="{{$edit_data[0]->image}}" class="form-control addfiles" id="showUrl" style="border: 0; cursor: pointer;">
+                      </div>
+                      <img src="/{{$edit_data[0]->image}}" width="80" style="margin-top: 10px;">
+                  </div> 
 
                 </div>
                 <div class="card-footer">
@@ -109,9 +105,16 @@ SBPGC CSE DEPT. Admin Panel Academic syllabus
 @section('self_javascript')
 <!-- Page specific script -->
 <script>
-// $(function () {
-//   bsCustomFileInput.init();
-// });
+
+$('.addfiles').on('click', function() { 
+  $('#fileupload').click();
+  return false;
+});
+function getFiles(event) {
+  console.log(event.target.files);
+  console.log(event.target.files[0].name);
+  $("#showUrl").val(event.target.files[0].name);
+}
 function validateNumber(e) {
     const pattern = /^[0-9]$/;
     return pattern.test(e.key )

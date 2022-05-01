@@ -61,14 +61,15 @@
                                         <label for="permanent_status">Permanent Status</label>                    
                                         <select name="permanent_status" id="status" class="form-control" required>
                                             <option>Select Status</option>
-                                            <option value="Permanent">Permanent</option>
+                                            <option value="Chairman">Chairman</option>
+                                            <option value="Member">Member</option>
                                             <option value="Guest">Guest</option>
                                             <option value="Staff">Staff</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
                                         <label for="description">Description</label>
-                                        <textarea class="form-control" name="description" id="description" cols="30" rows="10"></textarea>
+                                        <textarea class="form-control ckeditor" name="description" id="description" cols="30" rows="10"></textarea>
                                     </div> 
                                     <div class="form-group">
                                         <label for="image">Image</label>

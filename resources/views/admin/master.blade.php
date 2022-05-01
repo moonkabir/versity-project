@@ -273,6 +273,7 @@
           {{-- faculty section End --}}
         </ul>
       </nav>
+      @yield('sidebar_menu')
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
@@ -323,6 +324,12 @@
 <script src="{{asset('admin/assets/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- overlayScrollbars -->
 <script src="{{asset('admin/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.ckeditor').ckeditor();
+    });
+</script>
 <!-- AdminLTE App -->
 <script src="{{asset('admin/assets/dist/js/adminlte.js')}}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
