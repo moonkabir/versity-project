@@ -38,7 +38,7 @@
                             <div class="card-header d-flex justify-content-between">
                                 <h3 class="card-title">Faculty Member</h3>
                             </div>
-                            <form id="add_faculty_member_form" method="post" action="{{route('add_faculty_member_post')}}" enctype="multipart/form-data">
+                            <form id="add_faculty_member_form" method="post" action="{{route('admin.add_faculty_member_post')}}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="card-body">
                                     <div class="form-group">

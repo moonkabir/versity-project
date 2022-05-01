@@ -26,11 +26,10 @@ class AcademicController extends Controller{
                 'degree' => $request->degree,
                 'status' => $request->status,
             ]);
-            return redirect('/manage_syllabus')->with('Smessage', 'Succefully syllabus added'); 
+            return redirect('/admin/manage_syllabus')->with('Smessage', 'Succefully syllabus added'); 
         }else{
             return redirect()->back()->with('Emessage', 'Duplicate course code');
         }
-        
     }
     //------manage_syllabus view----------
     public function manage_syllabus(){
@@ -62,6 +61,6 @@ class AcademicController extends Controller{
                 'degree' => $request->degree,
                 'status' => $request->status,
             ]);
-        return redirect('/manage_syllabus')->with('Smessage', 'Succefully syllabus edited');
+        return redirect('/admin/manage_syllabus')->with('Smessage', 'Succefully syllabus edited');
     }
 }

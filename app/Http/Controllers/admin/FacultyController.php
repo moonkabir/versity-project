@@ -57,7 +57,7 @@ class FacultyController extends Controller{
                 'password' => Hash::make("Secret"),
             ]);
 
-            return redirect('/manage_faculty_member')->with('Smessage', 'Faculty Member add Succefully');
+            return redirect('/admin/manage_faculty_member')->with('Smessage', 'Faculty Member add Succefully');
         } catch (\Exception $e) {
             // return response()->json(['status' => false, 'message' => $e->getMessage()]);
             return redirect()->back()->with('Emessage', $e->getMessage());
@@ -72,8 +72,8 @@ class FacultyController extends Controller{
     //------delete_faculty_member view----------
     public function delete_faculty_member($id){
         $member_email = DB::table('faculty_member')->where('id',$id)->value("email");
-        DB::table('faculty_member')->where('id',$member_email)->delete();
-        DB::table('users')->where('id',$member_email)->delete();
+        DB::table('faculty_member')->where('email',$member_email)->delete();
+        DB::table('users')->where('email',$member_email)->delete();
         return redirect()->back()->with('Emessage', 'Faculty Member Delete Succefully');
     }
     //------edit_faculty_member view----------
@@ -114,6 +114,6 @@ class FacultyController extends Controller{
                 'name' => $request->name,
                 'email' => $request->email
             ]);
-        return redirect('/manage_faculty_member')->with('Smessage', 'Faculty Member Update Succefully');
+        return redirect('/admin/manage_faculty_member')->with('Smessage', 'Faculty Member Update Succefully');
     }
 }
