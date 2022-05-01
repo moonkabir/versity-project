@@ -1,10 +1,10 @@
 @extends('admin.master')
 @section('page_title')
-SBPGC CSE DEPT. Admin Panel faculty member
+SBPGC CSE DEPT. Admin Panel faculty chairman
 @endsection
 @section('faculty_menu_open')menu-is-opening menu-open @endsection
 @section('faculty_menu_active')active @endsection
-@section('manage_faculty_member_menu_active')active @endsection
+@section('manage_faculty_chairman_menu_active')active @endsection
 @section('admin_panel_section')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -13,12 +13,12 @@ SBPGC CSE DEPT. Admin Panel faculty member
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Faculty Member</h1>
+                    <h1>Faculty Chairman</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Faculty Member</li>
+                        <li class="breadcrumb-item active">Faculty Chairman</li>
                     </ol>
                 </div>
             </div>
@@ -55,39 +55,39 @@ SBPGC CSE DEPT. Admin Panel faculty member
                                             <th>ID</th>
                                             <th>Image</th>
                                             <th>Name</th>
-                                            <th>Number</th>
-                                            <th>Email</th>
-                                            <th>Designation</th>
                                             <th>Status</th>
+                                            <th>Speech</th>
+                                            <th>Start Date</th>
+                                            <th>End date</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         $i = 1;
-                                        // dd($faculty_members);
+                                        // dd($faculty_chairmans);
                                         ?>
-                                        @foreach($faculty_members as $faculty_member)
+                                        @foreach($faculty_chairmans as $chairman)
                                         <tr>
                                             <td>{{$i}}</td>
                                             <td>
                                                 <?php
-                                                    if($faculty_member->image){
+                                                    if($chairman->image){
                                                 ?>
-                                                        <img src="/{{$faculty_member->image}}" width="80">
+                                                        <img src="/{{$chairman->image}}" width="80">
                                                 <?php
                                                     }
                                                 ?>
                                                     
                                             </td>
-                                            <td>{{$faculty_member->name}}</td>
-                                            <td>{{$faculty_member->contact_number}}</td>
-                                            <td>{{$faculty_member->email}}</td>
-                                            <td>{{$faculty_member->designation}}</td>
-                                            <td>{{$faculty_member->permanent_status}}</td>
+                                            <td>{{$chairman->name}}</td>
+                                            <td>{{$chairman->status}}</td>
+                                            <td>{{$chairman->chairman_speech}}</td>
+                                            <td>{{$chairman->start_date}}</td>
+                                            <td>{{$chairman->end_date}}</td>
                                             <td>
-                                                <a href="{{ route('admin.edit_faculty_member', [ 'id'=> $faculty_member->id ]) }}"><i class="fas fa-edit"></i></a>  |
-                                                <a href="{{ route('admin.delete_faculty_member', [ 'id'=> $faculty_member->id ]) }}"><i class="fas fa-trash"></i></a>
+                                                <a href="{{ route('admin.edit_faculty_chairman', [ 'id'=> $chairman->chairman_id ]) }}"><i class="fas fa-edit"></i></a>  |
+                                                <a href="{{ route('admin.delete_faculty_chairman', [ 'id'=> $chairman->chairman_id ]) }}"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         <?php
@@ -100,10 +100,10 @@ SBPGC CSE DEPT. Admin Panel faculty member
                                         <th>ID</th>
                                         <th>Image</th>
                                         <th>Name</th>
-                                        <th>Number</th>
-                                        <th>Email</th>
-                                        <th>Designation</th>
                                         <th>Status</th>
+                                        <th>Speech</th>
+                                        <th>Start Date</th>
+                                        <th>End date</th>
                                         <th>Action</th>
                                     </tr>
                                     </tfoot>

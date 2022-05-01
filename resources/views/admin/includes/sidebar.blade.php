@@ -38,13 +38,25 @@
                 <li class="nav-item">
                     <a href="{{route('admin.add_faculty_member')}}" class="nav-link @yield('add_faculty_member_menu_active')">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Add Faculty Member</p>
+                        <p>Add Member</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="{{route('admin.manage_faculty_member')}}" class="nav-link @yield('manage_faculty_member_menu_active')">
                         <i class="far fa-circle nav-icon"></i>
-                        <p>Manage Faculty Member</p>
+                        <p>Manage Member</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.add_faculty_chairman')}}" class="nav-link @yield('add_faculty_chairman_menu_active')">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add Chairman</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.manage_faculty_chairman')}}" class="nav-link @yield('manage_faculty_chairman_menu_active')">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Manage Chairman</p>
                     </a>
                 </li>
             </ul>

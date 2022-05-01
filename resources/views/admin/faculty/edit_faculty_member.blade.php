@@ -1,6 +1,6 @@
 @extends('admin.master')
 @section('page_title')
-SBPGC CSE DEPT. Admin Panel Academic syllabus
+SBPGC CSE DEPT. Admin Panel Faculty Member
 @endsection
 @section('faculty_menu_open')menu-is-opening menu-open @endsection
 @section('faculty_menu_active')active @endsection
@@ -13,12 +13,12 @@ SBPGC CSE DEPT. Admin Panel Academic syllabus
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Edit Syllabus</h1>
+                    <h1>Edit Faculty Member</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Edit Syllabus</li>
+                        <li class="breadcrumb-item active">Edit Faculty Member</li>
                     </ol>
                 </div>
             </div>
@@ -39,7 +39,7 @@ SBPGC CSE DEPT. Admin Panel Academic syllabus
                     <div class="col-12">
                         <div class="card card-primary">
                             <div class="card-header d-flex justify-content-between">
-                                <h3 class="card-title">Add Syllabus</h3>
+                                <h3 class="card-title">Edit Faculty Member</h3>
                             </div>
                             <!-- /.card-header -->
                             <!-- form start -->
@@ -67,7 +67,6 @@ SBPGC CSE DEPT. Admin Panel Academic syllabus
                                         <label for="permanent_status">Permanent Status</label>
                                         <select name="permanent_status" id="status" class="form-control" required>
                                             <option>Select Status</option>
-                                            <option value="Chairman" <?php if($edit_data[0]->permanent_status == "Chairman")echo "selected"; ?> >Chairman</option>
                                             <option value="Member" <?php if($edit_data[0]->permanent_status == "Member")echo "selected"; ?> >Member</option>
                                             <option value="Guest" <?php if($edit_data[0]->permanent_status == "Guest")echo "selected"; ?> >Guest</option>
                                             <option value="Staff" <?php if($edit_data[0]->permanent_status == "Staff")echo "selected"; ?> >Staff</option>

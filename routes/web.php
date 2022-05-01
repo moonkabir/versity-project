@@ -50,6 +50,18 @@ Route::prefix('admin')->group(function () {
 	Route::get('/edit_faculty_member/{id}', [FacultyController::class, 'edit_faculty_member'])->middleware(['auth'])->name('admin.edit_faculty_member');
 	Route::post('/edit_faculty_member_post', [FacultyController::class, 'edit_faculty_member_post'])->middleware(['auth'])->name('admin.edit_faculty_member_post');
 	Route::get('/delete_faculty_member/{id}', [FacultyController::class, 'delete_faculty_member'])->middleware(['auth'])->name('admin.delete_faculty_member');
+
+
+
+	Route::get('/add_faculty_chairman', [FacultyController::class, 'add_faculty_chairman'])->middleware(['auth'])->name('admin.add_faculty_chairman');
+	Route::post('/add_faculty_chairman_post', [FacultyController::class, 'add_faculty_chairman_post'])->middleware(['auth'])->name('admin.add_faculty_chairman_post');
+	Route::get('/manage_faculty_chairman', [FacultyController::class, 'manage_faculty_chairman'])->middleware(['auth'])->name('admin.manage_faculty_chairman');
+	Route::get('/edit_faculty_chairman/{id}', [FacultyController::class, 'edit_faculty_chairman'])->middleware(['auth'])->name('admin.edit_faculty_chairman');
+	Route::post('/edit_faculty_chairman_post', [FacultyController::class, 'edit_faculty_chairman_post'])->middleware(['auth'])->name('admin.edit_faculty_chairman_post');
+	Route::get('/delete_faculty_chairman/{id}', [FacultyController::class, 'delete_faculty_chairman'])->middleware(['auth'])->name('admin.delete_faculty_chairman');
+
+
+
 	//----------------- admin panel about route -----------------
 	Route::get('about', [AboutController::class, 'admin_view_about'])->middleware(['auth'])->name('admin.about');
 	Route::post('about_post', [AboutController::class, 'admin_about_post'])->middleware(['auth'])->name('admin.about_post');

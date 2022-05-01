@@ -45,33 +45,35 @@
                                         <label for="name">Name</label>
                                         <input type="text" class="form-control" id="name" name="name" placeholder="Member Name" required>
                                     </div>                  
-                                    <div class="form-group">
+                                    <div class="form-group" id="contact_number">
                                         <label for="contact_number">Phone Number</label>
-                                        <input type="text" class="form-control" id="contact_number" name="contact_number" placeholder="Phone Number" required>
+                                        <input type="text" class="form-control" name="contact_number" placeholder="Phone Number">
                                     </div>                  
-                                    <div class="form-group">
+                                    <div class="form-group" id="designation">
                                         <label for="designation">Designation</label>
-                                        <input type="text" class="form-control" id="designation" name="designation" placeholder="Member Designation" required>
+                                        <input type="text" class="form-control" name="designation" placeholder="Member Designation">
                                     </div>                  
-                                    <div class="form-group">
+                                    <div class="form-group" id="email">
                                         <label for="email">Email</label>
-                                        <input type="text" class="form-control" id="email" name="email" placeholder="Member Email" required>
+                                        <input type="text" class="form-control" name="email" placeholder="Member Email">
+                                    </div> 
+                                    <div class="form-group" id="description">
+                                        <label for="description">Description</label>
+                                        <textarea class="form-control ckeditor" name="description" cols="30" rows="10"></textarea>
                                     </div>                  
                                     <div class="form-group">
                                         <label for="permanent_status">Permanent Status</label>                    
                                         <select name="permanent_status" id="status" class="form-control" required>
-                                            <option>Select Status</option>
-                                            <option value="Chairman">Chairman</option>
                                             <option value="Member">Member</option>
                                             <option value="Guest">Guest</option>
                                             <option value="Staff">Staff</option>
                                         </select>
+                                    </div>                 
+                                    <div class="form-group d-none" id="institution">
+                                        <label for="institution">Institution</label>
+                                        <input type="text" class="form-control" name="institution" placeholder="institution">
                                     </div>
-                                    <div class="form-group">
-                                        <label for="description">Description</label>
-                                        <textarea class="form-control ckeditor" name="description" id="description" cols="30" rows="10"></textarea>
-                                    </div> 
-                                    <div class="form-group">
+                                    <div class="form-group"  id="image_file">
                                         <label for="image">Image</label>
                                         <input type="file" name="image" size="40" class="form-control" id="image">
                                     </div> 
@@ -90,8 +92,19 @@
 @section('self_javascript')
     <script>
         function validateNumber(e) {
-        const pattern = /^[0-9]$/;
-        return pattern.test(e.key )
+            const pattern = /^[0-9]$/;
+            return pattern.test(e.key);
         }
+        $("#status").change(function(){
+            var status = $("#status").val();
+            if(status == "Guest"){
+                $("#image_file").addClass("d-none");
+                $("#institution").removeClass("d-none");
+            }else if(status == "Staff"){
+                $("#image_file").addClass("d-none");
+            }else{
+                $("#image_file").removeClass("d-none");
+            }
+        });
     </script>
 @endsection
