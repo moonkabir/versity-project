@@ -1,10 +1,10 @@
 @extends('admin.master')
 @section('page_title')
-SBPGC CSE DEPT. Admin Panel faculty chairman
+    SBPGC CSE DEPT. Admin Panel Admission
 @endsection
-@section('faculty_menu_open')menu-is-opening menu-open @endsection
-@section('faculty_menu_active')active @endsection
-@section('manage_faculty_chairman_menu_active')active @endsection
+@section('admission_menu_open')menu-is-opening menu-open @endsection
+@section('admission_menu_active')active @endsection
+@section('manage_admission_menu_active')active @endsection
 @section('admin_panel_section')
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -13,12 +13,12 @@ SBPGC CSE DEPT. Admin Panel faculty chairman
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Faculty Chairman</h1>
+                    <h1>Admission</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Faculty Chairman</li>
+                        <li class="breadcrumb-item active">Admission</li>
                     </ol>
                 </div>
             </div>
@@ -53,41 +53,23 @@ SBPGC CSE DEPT. Admin Panel faculty chairman
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Image</th>
-                                            <th>Name</th>
-                                            <th>Status</th>
-                                            <th>Speech</th>
-                                            <th>Start Date</th>
-                                            <th>End date</th>
+                                            <th>Title</th>
+                                            <th>Description</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         $i = 1;
-                                        // dd($faculty_chairmans);
                                         ?>
-                                        @foreach($faculty_chairmans as $chairman)
+                                        @foreach($admission as $admission_section)
                                         <tr>
                                             <td>{{$i}}</td>
+                                            <td>{{$admission_section->title}}</td>
+                                            <td>{!! $admission_section->description !!}</td>
                                             <td>
-                                                <?php
-                                                    if($chairman->image){
-                                                ?>
-                                                        <img src="/{{$chairman->image}}" width="80">
-                                                <?php
-                                                    }
-                                                ?>
-                                                    
-                                            </td>
-                                            <td>{{$chairman->name}}</td>
-                                            <td>{{$chairman->status}}</td>                                            
-                                            <td>{!! $chairman->chairman_speech !!}</td>
-                                            <td>{{$chairman->start_date}}</td>
-                                            <td>{{$chairman->end_date}}</td>
-                                            <td>
-                                                <a href="{{ route('admin.edit_faculty_chairman', [ 'id'=> $chairman->chairman_id ]) }}"><i class="fas fa-edit"></i></a>  |
-                                                <a href="{{ route('admin.delete_faculty_chairman', [ 'id'=> $chairman->chairman_id ]) }}"><i class="fas fa-trash"></i></a>
+                                                <a href="{{ route('admin.edit_admission', [ 'id'=> $admission_section->id ]) }}"><i class="fas fa-edit"></i></a>  |
+                                                <a href="{{ route('admin.delete_admission', [ 'id'=> $admission_section->id ]) }}"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         <?php
@@ -98,12 +80,8 @@ SBPGC CSE DEPT. Admin Panel faculty chairman
                                     <tfoot>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Image</th>
-                                        <th>Name</th>
-                                        <th>Status</th>
-                                        <th>Speech</th>
-                                        <th>Start Date</th>
-                                        <th>End date</th>
+                                        <th>Title</th>
+                                        <th>Description</th>
                                         <th>Action</th>
                                     </tr>
                                     </tfoot>
@@ -138,22 +116,22 @@ SBPGC CSE DEPT. Admin Panel faculty chairman
         <!-- Page specific script -->
         <script>
         $(function () {
-        bsCustomFileInput.init();
+            bsCustomFileInput.init();
         });
         $(function () {
-        $("#example1").DataTable({
-        "responsive": true, "lengthChange": false, "autoWidth": false,
-        "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-        "paging": true,
-        "lengthChange": false,
-        "searching": false,
-        "ordering": true,
-        "info": true,
-        "autoWidth": false,
-        "responsive": true,
-        });
+            $("#example1").DataTable({
+                "responsive": true, "lengthChange": false, "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
         });
         </script>
         @endsection

@@ -116,9 +116,13 @@
         <script src="{{asset('admin/assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
         <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
         <script type="text/javascript">
-        $(document).ready(function () {
-        $('.ckeditor').ckeditor();
-        });
+            $(document).ready(function () {
+                $('.ckeditor').ckeditor();
+            });
+            // CKEDITOR.replace('wysiwyg', {
+            //     filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+            //     filebrowserUploadMethod: 'form'
+            // });
         </script>
         <!-- AdminLTE App -->
         <script src="{{asset('admin/assets/dist/js/adminlte.js')}}"></script>

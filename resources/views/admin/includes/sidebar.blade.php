@@ -9,7 +9,7 @@
         {{-- Academic section start --}}
         <li class="nav-item @yield('academic_menu_open')">
             <a href="#" class="nav-link  @yield('academic_menu_active')">
-                <i class="fas fa-book-open"></i>
+                <i class="nav-icon fas fa-book-open"></i>
                 <p>Academic<i class="fas fa-angle-left right"></i></p>
             </a>
             <ul class="nav nav-treeview">
@@ -31,7 +31,7 @@
         {{-- faculty section start --}}
         <li class="nav-item @yield('faculty_menu_open')">
             <a href="#" class="nav-link  @yield('faculty_menu_active')">
-                <i class="fas fa-building"></i>
+                <i class="nav-icon fas fa-building"></i>
                 <p>Faculty<i class="fas fa-angle-left right"></i></p>
             </a>
             <ul class="nav nav-treeview">
@@ -65,10 +65,32 @@
         {{-- about section start --}}
         <li class="nav-item @yield('about_menu_open')">
             <a href="{{route('admin.about')}}" class="nav-link  @yield('about_menu_active')">
-                <i class="fas fa-school"></i></i>
+                <i class="nav-icon fas fa-school"></i></i>
                 <p>About</p>
             </a>
         </li>
         {{-- about section End --}}
+        {{-- Admission start --}}
+        <li class="nav-item @yield('admission_menu_open')">
+            <a href="#" class="nav-link  @yield('admission_menu_active')">
+                <i class="nav-icon fas fa-book"></i>
+                <p>Admission<i class="fas fa-angle-left right"></i></p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{route('admin.add_admission')}}" class="nav-link @yield('add_admission_menu_active')">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add Admission</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin.manage_admission')}}" class="nav-link @yield('manage_admission_menu_active')">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Manage Admission</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        {{-- Admission End --}}
     </ul>
 </nav>
