@@ -58,7 +58,7 @@
 .contact #contact-form .contact-us-button{
     margin-top: 20px;
 }
-.contact #contact-form .contact-us-button a{
+.contact #contact-form .contact-us-button .submit{
     background: #006804;
     border: 0;
 }  
@@ -66,6 +66,14 @@
     <div class="container contact">
         <div class="row">
             <div class="col-12 col-md-5">
+                @if (\Session::has('Emessage'))
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        <strong>{!! \Session::get('Emessage') !!}</strong>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                @endif
                 <div class="phone" style="margin-top: 20px;">
                     <h3 class="text-uppercase"><i class="fa fa-phone"></i></h3>
                     <ul>
@@ -111,25 +119,26 @@
                 <img src="{{asset("/front-end/images/contact-us-image.jpg")}}" alt="contact-us-image" class="img-responsive">
             </div>
             <div class="col-md-6 col-12">
-                <form id="contact-form">
-                        <div class="md-form">
-                            <label for="name" >Your name</label>
-                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter Your Name">
-                        </div>
-                        <div class="md-form">
-                            <label for="email" >Your email</label>
-                            <input type="text" id="email" name="email" class="form-control" placeholder="Enter Your Email Address" required>
-                        </div>
-                        <div class="md-form">
-                            <label for="subject" >Your Phone Number</label>
-                            <input type="text" id="subject" name="subject" class="form-control" placeholder="Enter your phone number">
-                        </div>
-                        <div class="md-form">
-                            <label for="message">Your message</label>
-                            <textarea type="text" id="message" name="message" rows="6" class="form-control md-textarea"></textarea>
-                        </div>
+                <form id="contact-form" method="post" action="{{route('contact_post')}}">
+                    @csrf
+                    <div class="md-form">
+                        <label for="name" >Your name</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Enter Your Name" required>
+                    </div>
+                    <div class="md-form">
+                        <label for="email" >Your email</label>
+                        <input type="text" id="email" name="email" class="form-control" placeholder="Enter Your Email Address" required>
+                    </div>
+                    <div class="md-form">
+                        <label for="phone" >Your Phone Number</label>
+                        <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" required>
+                    </div>
+                    <div class="md-form">
+                        <label for="message">Your message</label>
+                        <textarea type="text" id="message" name="message" rows="6" class="form-control md-textarea" required></textarea>
+                    </div>
                     <div class="contact-us-button">
-                        <a class="btn btn-primary">Send your Request</a>
+                        <button type="submit" class="btn btn-primary submit">Send your Request</button>
                     </div>
                 </form>
             </div>

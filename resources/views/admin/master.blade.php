@@ -119,10 +119,6 @@
             $(document).ready(function () {
                 $('.ckeditor').ckeditor();
             });
-            // CKEDITOR.replace('wysiwyg', {
-            //     filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
-            //     filebrowserUploadMethod: 'form'
-            // });
         </script>
         <!-- AdminLTE App -->
         <script src="{{asset('admin/assets/dist/js/adminlte.js')}}"></script>

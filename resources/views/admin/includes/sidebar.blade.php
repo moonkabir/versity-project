@@ -65,7 +65,7 @@
         {{-- about section start --}}
         <li class="nav-item @yield('about_menu_open')">
             <a href="{{route('admin.about')}}" class="nav-link  @yield('about_menu_active')">
-                <i class="nav-icon fas fa-school"></i></i>
+                <i class="nav-icon fas fa-school"></i>
                 <p>About</p>
             </a>
         </li>
@@ -92,5 +92,21 @@
             </ul>
         </li>
         {{-- Admission End --}}
+        {{-- contact section start --}}
+        <li class="nav-item @yield('contact_menu_open')">
+            <a href="{{route('admin.contact')}}" class="nav-link  @yield('contact_menu_active')">
+                <i class="fa fa-map-marker nav-icon"></i>
+                <p>Contact</p>
+            </a>
+        </li>
+        {{-- contact section End --}}
+        {{-- contact form section start --}}
+        <li class="nav-item @yield('contact_form_menu_open')">
+            <a href="{{route('admin.contact_form')}}" class="nav-link  @yield('contact_form_menu_active')">
+                <i class="fa fa-map-marker nav-icon"></i>
+                <p>Contact Form</p>
+            </a>
+        </li>
+        {{-- contact section End --}}
     </ul>
 </nav>

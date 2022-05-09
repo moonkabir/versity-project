@@ -3,12 +3,13 @@ require __DIR__ . '/auth.php';
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\FrontcontactController;
 use App\Http\Controllers\admin\DashboardController;
 use App\Http\Controllers\admin\AcademicController;
 use App\Http\Controllers\admin\FacultyController;
 use App\Http\Controllers\admin\AboutController;
 use App\Http\Controllers\admin\AdmissionController;
-use App\Http\Controllers\CKEditorController;
+use App\Http\Controllers\admin\ContactController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -31,6 +32,7 @@ Route::get('/video-gallery', [FrontController::class, 'video_gallery']);
 Route::get('/image-gallery', [FrontController::class, 'image_gallery']);
 Route::get('/result', [FrontController::class, 'result']);
 Route::get('/contact', [FrontController::class, 'contact']);
+Route::post('/contact_post', [FrontcontactController::class, 'contact_post'])->name('contact_post');;
 Route::get('/allumni', [FrontController::class, 'allumni']);
 
 //----------------- admin panel route-----------------
@@ -68,10 +70,15 @@ Route::prefix('admin')->group(function () {
 	Route::get('/edit_admission/{id}', [AdmissionController::class, 'edit_admission'])->middleware(['auth'])->name('admin.edit_admission');
 	Route::post('/edit_admission_post', [AdmissionController::class, 'edit_admission_post'])->middleware(['auth'])->name('admin.edit_admission_post');
 	Route::get('/delete_admission/{id}', [AdmissionController::class, 'delete_admission'])->middleware(['auth'])->name('admin.delete_admission');
+	//----------------- admin panel Contact route -----------------
+	Route::get('/contact', [ContactController::class, 'admin_view_contact'])->middleware(['auth'])->name('admin.contact');
+	Route::post('/contact_post', [ContactController::class, 'admin_contact_post'])->middleware(['auth'])->name('admin.contact_post');
+	Route::get('/contact_form', [ContactController::class, 'admin_view_contact_form'])->middleware(['auth'])->name('admin.contact_form');
+	Route::get('/contact_form_data_details/{id}', [ContactController::class, 'contact_form_data_details'])->middleware(['auth'])->name('admin.contact_form_data_details');
+	Route::get('/contact_form_data_delete/{id}', [ContactController::class, 'contact_form_data_delete'])->middleware(['auth'])->name('admin.contact_form_data_delete');
 });
 
 
-Route::post('ckeditor/upload', [CKEditorController::class, 'upload'])->name('ckeditor.image-upload');
 
 //------------- cache clear---------------------
 Route::get('/clear', function () {

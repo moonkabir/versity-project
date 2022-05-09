@@ -3,3 +3,7 @@
 #edit_faculty_member_form input#image{
     padding-bottom: 37px !important;
 }
+td>a>i{
+    width: 15px;
+    padding: 0 3px;
+}
